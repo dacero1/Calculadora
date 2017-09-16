@@ -10,4 +10,10 @@
     <string name="Dividir">DIVIDIR</string>
     <string name="primer_numero">Primer Numero</string>
     <string name="segundo_numero">Segundo Numero</string>
+    <string-array name="opciones">
+        <item>@string/Sumar</item>
+        <item>@string/Restar</item>
+        <item>@string/Multiplicar</item>
+        <item>@string/Dividir</item>
+    </string-array>
 </resources>
