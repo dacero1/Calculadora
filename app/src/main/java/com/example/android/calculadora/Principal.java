@@ -3,6 +3,7 @@ package com.example.android.calculadora;
 import android.content.res.Resources;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -27,5 +28,36 @@ public class Principal extends AppCompatActivity {
         op = resources.getStringArray(R.array.opciones);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, op);
         operaciones.setAdapter(adapter);
+    }
+
+    public void calcuar(View v){
+        int opcion;
+        double num1, num2, resultado = 0;
+
+        opcion = operaciones.getSelectedItemPosition();
+        num1 = Double.parseDouble(n1.getText().toString());
+        num2 = Double.parseDouble(n2.getText().toString());
+        switch (opcion){
+            case 0:
+                resultado = num1 + num2;
+                break;
+            case 1:
+                resultado = num1 - num2;
+                break;
+            case 2:
+                resultado = num1 * num2;
+                break;
+            case 3:
+                resultado = num1 / num2;
+                break;
+        }
+        res.setText(""+String.format("%.2f",resultado));
+    }
+    public void borrar(View v){
+        n1.setText("");
+        n2.setText("");
+        res.setText("");
+        operaciones.setSelection(0);
+        n1.requestFocus();
     }
 }
