@@ -10,6 +10,9 @@
     <string name="Dividir">DIVIDIR</string>
     <string name="primer_numero">Primer Numero</string>
     <string name="segundo_numero">Segundo Numero</string>
+    <string name="error_uno">Digite numero uno</string>
+    <string name="error_dos">Digite numero dos</string>
+    <string name="error_tres">Division por cero</string>
     <string-array name="opciones">
         <item>@string/Sumar</item>
         <item>@string/Restar</item>

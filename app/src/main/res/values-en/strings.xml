@@ -11,4 +11,7 @@
     <string name="Multiplicar">MULTIPLICATION</string>
     <string name="primer_numero">First Number</string>
     <string name="segundo_numero">Second Number</string>
+    <string name="error_dos">Type Number</string>
+    <string name="error_uno">Type Number</string>
+    <string name="error_tres">Division by zero</string>
 </resources>

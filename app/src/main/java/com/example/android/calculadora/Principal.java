@@ -33,25 +33,34 @@ public class Principal extends AppCompatActivity {
     public void calcuar(View v){
         int opcion;
         double num1, num2, resultado = 0;
-
-        opcion = operaciones.getSelectedItemPosition();
-        num1 = Double.parseDouble(n1.getText().toString());
-        num2 = Double.parseDouble(n2.getText().toString());
-        switch (opcion){
-            case 0:
-                resultado = num1 + num2;
-                break;
-            case 1:
-                resultado = num1 - num2;
-                break;
-            case 2:
-                resultado = num1 * num2;
-                break;
-            case 3:
-                resultado = num1 / num2;
-                break;
+        if(validad()){
+            res.setText("");
+            opcion = operaciones.getSelectedItemPosition();
+            num1 = Double.parseDouble(n1.getText().toString());
+            num2 = Double.parseDouble(n2.getText().toString());
+            switch (opcion){
+                case 0:
+                    resultado = num1 + num2;
+                    break;
+                case 1:
+                    resultado = num1 - num2;
+                    break;
+                case 2:
+                    resultado = num1 * num2;
+                    break;
+                case 3:
+                    if(num2==0){
+                        n2.setError(resources.getString(R.string.error_tres));
+                    }else{
+                        resultado = num1 / num2;
+                        n2.setText("");
+                        n2.requestFocus();
+                    }
+                    break;
+            }
+            res.setText(""+String.format("%.2f",resultado));
         }
-        res.setText(""+String.format("%.2f",resultado));
+
     }
     public void borrar(View v){
         n1.setText("");
@@ -59,5 +68,19 @@ public class Principal extends AppCompatActivity {
         res.setText("");
         operaciones.setSelection(0);
         n1.requestFocus();
+    }
+
+    private boolean validad(){
+        if(n1.getText().toString().isEmpty()){
+            n1.setError(resources.getString(R.string.error_uno));
+            n1.requestFocus();
+            return false;
+        }
+        if(n2.getText().toString().isEmpty()){
+            n2.setError(resources.getString(R.string.error_dos));
+            n2.requestFocus();
+            return false;
+        }
+        return true;
     }
 }
